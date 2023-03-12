@@ -31,112 +31,110 @@ GitHub: <a href="https://github.com/LauraPV5">https://github.com/LauraPV5</a></p
 
 <h2>Contexto</h2>
 
-Para la realización de éste trabajo práctico se ha utilizado un data set con el que se ha trabajado en la asignatura de "Machine Learning".<br><br>
+"De acuerdo con los objetivos del presidente Obama de Data to Action, el Dr. Holdren, el científico jefe de la nación, lanzó la iniciativa Predict the Next Pandemic (PtNP). La Iniciativa PtNP fue diseñada para anticipar la aparición de enfermedades, identificar los primeros indicios de la aparición de enfermedades, determinar el potencial pandémico de una enfermedad y pronosticar los impactos y efectos de la mitigación en la progresión de la enfermedad. La Oficina de Políticas Científicas y Tecnológicas ( OSTP ) estableció el Grupo de Trabajo interinstitucional de Ciencia y Tecnología de Predicción y Pronóstico de Pandemias (PPFST) dentro del Consejo Nacional de Ciencia y Tecnología ( NSTC ) para lograr estos objetivos. <br><br>
 
-El subconjunto de datos que hemos utilizado es aquel que tiene un formato para el archivo de envío y es simplemente el y el previsto para San Juan o Iquitos. Además se representa como valores enteros.(city, year, weekofyear) total_casesSubmissionFormat.csvtotal_cases. <br><br>
+Los Centros para el Control y la Prevención de Enfermedades de EE. UU., en colaboración con el Departamento de Salud de Puerto Rico, proporcionará los datos de vigilancia del dengue de San Juan, Puerto Rico. La Unidad de Investigación Médica Naval del Departamento de Defensa 6 , en colaboración con el gobierno peruano, las universidades estadounidenses y el Centro de Vigilancia de la Salud de las Fuerzas Armadas ( AFHSC ), proporcionarán datos sobre el dengue de Iquitos, Perú. NOAA , en cooperación con el Instituto Cooperativo para el Clima y los Satélites , proporcionará datos ambientales y climáticos y resultados de modelos climáticos." Referenciado más abajo. <br><br>
+
+Para la realización de éste trabajo práctico se ha utilizado un data set con el que se ha trabajado en la asignatura de "Machine Learning".<br><br>
+Concretamente, el subconjunto de datos que hemos utilizado es aquel que tiene un formato para el archivo de envío y es simplemente el y el previsto para San Juan o Iquitos. Además se representa como valores enteros.(city, year, weekofyear) total_casesSubmissionFormat.csvtotal_cases. <br><br>
 
 <h2>Descripción del problema</h2>
 
-"Su objetivo es predecir la etiqueta para cada uno en el conjunto de prueba. Hay dos ciudades, San Juan e Iquitos, con datos de prueba para cada ciudad que abarcan 5 y 3 años respectivamente. Hará una presentación que contenga predicciones para ambas ciudades. Los datos para cada ciudad se han concatenado junto con una columna que indica la fuente: para San Juan y para Iquitos"
-<br />
+Estos datos usados en competencias provienen de fuentes que apoyan a la iniciativa Predict the Next Pandemic. Dichos datos son proporcionados por los Centros para controlar y prevenir enfermedades.
 
-<h2>Introducción</h2>
-En el presente trabajo se presenta un análisis del tráfico aéreo en Canadá. El
-dataset utilizado para el estudio ha sido extraído de la web "Government of Canada" y dispone de licencia "Open Government Licence -Canada", ver referencias abajo.
-<br /><br />
+Nos encontramos con dos ciudades, concretamente San Juan e Iquitos. Los datos de prueba que presenta cada ciudad abarcan 5 y 3 años respectivamente. Los datos de cada ciudad se concatenan junto con una columna que indica la fuente para las mismas. Este conjunto de prueba es una resistencia del futuro lo cual significa que estos datos de prueba son secuenciales y por consiguiente no se superponen con los datos de entrenamiento.<br><br>
 
-Canadá está localizada en el norte de Norteamérica. Al oeste colinda con el
-Océano Pacífico y al este con el Océano Atlántico. Al sur colinda con Estados
-Unidos y al norte con el Océano Ártico. Se ha escogido Canadá por ser el segundo
-país más grande en el mundo, después de Rusia, ya que su territorio cubre 9.9
-millones de kilómetros cuadrados.<br /><br />
+<h2>Elementos de la visualización</h2>
 
-En el estudio del presente trabajo, se realiza un estudio de las provincias y
-estados que consta Canadá: Alberta, Columbia Británica, Manitoba, Nuevo
-Brunswick, Terranova y Labrador, Nueva Escocia, Nunavut, Ontario, Quebec,
-Saskatchewan y Yukon.<br /><br />
-
-Además, también se analizan los tipos de aeronaves, clasificados por: Planeador,
-helicópteros, avión a reacción, aviones con motores de pistón y turbohélice.<br /><br />
-
-- Planeador: Un planeador es una aeronave de ala fija que se sostiene en vuelo
-por la reacción dinámica del aire contra sus superficies de sustentación, y cuyo
-vuelo libre no depende de un motor. La mayoría de los planeadores no tienen
-motor, aunque los planeadores a motor tienen motores pequeños para extender su
-vuelo cuando es necesario manteniendo la altitud (normalmente un planeador
-depende del aire ascendente para mantener la altitud).<br /><br />
-
-- Helicóptero: Se trata de aeronaves de alas giratorias. La principal ventaja de
-los helicópteros consiste en el rotor, el cual proporciona sustentacioón sin que
-la aeronave se desplace. Esto permite la posibilidad de poder realizar
-aterrizajes y despegues verticales.<br /><br />
-
-- Avión a reacción (jet engine): A partir de los años treinta del siglo pasado,
-los motores de turbina, también llamados de reacción acapararon gran parte de la
-aviación por unas características muy superiores a los motores de pistón. Eran
-más potentes, más seguros y simplemente permitían volar más rápido y más alto
-que ningún otro motor antes.<br /><br />
-
-- Aviones con motores de pistón (piston engine): Los aviones con motores de
-pistón son ligeros, no necesariamente rápidas. Este tipo de aeronaves suelen ser
-avionetas y aviones de uso particular.<br /><br />
-
-- Turbohélice (turbo-propeller): Se tratan de aviones regionales que utilizan
-hélices en sus motores. Presentan una gran eficiencia en relación
-velocidad-potencia que necesitan en sus rutas de corta distancia.<br /><br />
-
-<h2>Herramientas Utilizadas</h2>
-Para el análisis de los datasets se ha utilizado en primer lugar, Google sheets
-ya que permite de forma sencilla trabajar con los datos y graficar los
-resultados. Por otro lado se ha empleado Datawrapper ya que permite crear
-gráficos con mapas, con esta utilidad se ha podido graficar el mapa de Canadá
-con sus diferentes estados.<br /><br />
+El objetivo que queremos transmitir es la importancia que tiene el hecho de poder prevenir ciertas pandemias. <br><br>
+La manera de transmitir este mensaje es haciendo visualización de los casos que hay a lo largo de los años en dos de las ciudades. <br><br> 
+Ésto ayudará tanto a los trabajaores de la salud pública como a las personas de todo el mundo a tomar medidas para reducir el impacto de dichas epidemias, por tanto, la audiencia a la que se dirige dicho trabajo es a todos en general.<br><br>
 
 <h2>Análisis</h2>
-Se han utilizado dos dataset para realizar el análisis del tráfico aéreo, en primer lugar, partiendo del dataset total, se modifica para obtener un análisis de la evolución durante 3 años consecutivos (2017, 2018 y 2019) del total de número de vuelos de todo el país, clasificado por meses. De esta manera, podremos obtener en qué mes operan menos aeronaves a lo que llamaremos “temporada baja” y por el contrario, en qué mes operan mayor número de aeronaves, a este mes lo llamaremos “temporada alta”.<br /><br />
 
-En primer lugar gráficamos la tendencia total de vuelos de los último años. Podemos ver claramente como se repite anualmente el mismo patrón, indicando claramente estacionalidad en los eventos.<br />
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRBwc3kNk4wR7VSTaq0Clx6TyCvENVphORaPEoNtc0Oa6YZ4cxTYFM2wOE5TZHWifsjll72GUfyiNbF/pubchart?oid=812077679&amp;format=interactive"></iframe><br />
+El gráfico más sencillo de visualizar y comprender rápidamente junto con el siguiente gráfico circular es: (en el google sheets lo tengo diferente dicho título, pero al publicarlo aquí, no me lo modifica) donde salen los casos de cada ciudad. 
 
-Para analizar mejor esa estacionalidad decidimos mostrar en un mismo gráfico de lineas la tendencia de los 3 últimos años, cada año con un color diferente. Se aprecia que las tres comparten mínimo en el mes de febrero y un máximo en el mes de julio. Además se aprecia que estos mínimos y máximos para cada año son similares entre ellos.<br />
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRBwc3kNk4wR7VSTaq0Clx6TyCvENVphORaPEoNtc0Oa6YZ4cxTYFM2wOE5TZHWifsjll72GUfyiNbF/pubchart?oid=1677083532&amp;format=interactive"></iframe><br />
+<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQqZjy2a1iK9arCDhTUPi7k-3AhjOiVdRe71L6wv_kuR0p51SS4jIckqnh0PYUWHhbYMuyDSQiKR0Bj/pubchart?oid=86791766&amp;format=interactive"></iframe>
 
-Para analizar con más detenimiento los mínimos y máximos representamos en un diagrama de barras el nº total de vuelos de cada mes. Este gráfico nos permite comparar de forma sencilla la cantidad de vuelos de cada mes, además se aprecia la tendencia y periodicidad. Los meses de temporada baja (febrero) se han coloreado en azul mientras que los meses de temporada alta se han coloreado en rojo. La elección de estos colores quiere reforzar el enfasis de la estacionalidad con un cierto "mapa de calor", siendo azul(frio) y rojo(calor).<br/>
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRBwc3kNk4wR7VSTaq0Clx6TyCvENVphORaPEoNtc0Oa6YZ4cxTYFM2wOE5TZHWifsjll72GUfyiNbF/pubchart?oid=1705632141&amp;format=interactive"></iframe><br />
+<br><br>
 
-Sabiendo ahora que los meses de febrero y julio son los que tienen respectivamente menor y mayor tráfico aereo, procedemos a analizar el número total de vuelos de cada tipo de aeronave en estos meses. Para ello se ha hecho una media de los últimos años en estos meses y se ha representado en un gráfico de barras los dos meses, con un color distinto cada tipo de aeronave. Con esto se busca comparar dentro de cada mes que aeronaves vuelan más y a la vez comparar estas en los dos meses. De esta manera podemos apreciar como en el mes de febrero los valores de cada tipo de aeronave son menores que en julio. Es llamativo como los Gliders son practicamente inexistentes en febrero, lo cual podría estar relacionado con las condiciones climaticas de Canadá durante ese epoca, además de que este tipo de aeronave es de uso más recreativo, lo cual tiene más sentido que se utilice más en meses más vacacionales como es julio. <br/>
-Curiosamente se aprecia que las aeronaves de tipo "Piston engines" pasan de un tercer lugar en febrero a un segundo lugar en julio. En este caso no se ha querido ordenar de mayor a menor el mes de julio ya que se quería recalcar este dato.<br/><br />
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRBwc3kNk4wR7VSTaq0Clx6TyCvENVphORaPEoNtc0Oa6YZ4cxTYFM2wOE5TZHWifsjll72GUfyiNbF/pubchart?oid=1223876007&amp;format=interactive"></iframe><br /><br/>
+Para comparar porcentualmente las dos ciudades, hemos hecho uso de un Gráfico de tartas  ya que nos muestra una idea muy rapida (al ser solo dos variables categóricas; San Juan e Iquitos, respectivamente) de la distribución de la proporción de dichas categorías. Por tanto es adecuado al no haber muchas particiones y no tener que ser necesaria la precisión. Simplemente se ha realizado un recuento del total de casos en la variable weekofyear. <br><br>
 
-Procedemos a analizar con más detalle esta estacionalidad en los distintos estados de Canadá. Para ello nos hemos ayudado de Datawrapper que nos permite crear mapas interactivos. En este primer mapa, representamos el número total de vuelos en el mes de febrero. Se ha empleado un mapa de calor con colores que van del azul al rojo pasando por el blanco que indican respectivamente menor a mayor número de vuelos. El usuario además al pasar el ratón por el mapa puede ver el nombre del estado y número total de vuelos. <br/><br />
-De forma muy marcada se ve que el estado de Ontario es el que más vuelos tiene, mientras que el estado de Northwest Territories es el que menos tiene.<br/>
-<iframe title="Vuelos totales temporada baja estados Canadá 2018" aria-label="Map" id="datawrapper-chart-11Agg" src="https://datawrapper.dwcdn.net/11Agg/1/" scrolling="no" frameborder="0" style="border: none;" width="600" height="665" data-external="1"></iframe><img src="https://datawrapper.dwcdn.net/11Agg/full.png"/><br /><br/>
+<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT6x9hnjB0BxtmlfZR7uGTm8scTQLk2nFMv2Xk2orMXQHRaiOtWycuD0m4w6QPU5xhfaQKJo3IoV6ac/pubchart?oid=527048731&amp;format=interactive"></iframe> <br><br>
 
-El siguiente mapa de calor de Canadá muestra el número total de vuelos por estado en el mes de julio. Vemos como todos los estamos aumentan significativamente su número total de vuelos. <br/>
-<iframe title="Vuelos totales temporada alta estados Canadá 2018" aria-label="Map" id="datawrapper-chart-J3sMh" src="https://datawrapper.dwcdn.net/J3sMh/1/" scrolling="no" frameborder="0" style="border: none;" width="600" height="665" data-external="1"></iframe><img src="https://datawrapper.dwcdn.net/J3sMh/full.png"/><br /><br/>
+Ahora lo que se realiza es un gráfico circular 3D, en el que se puede ver el total de casos de cada año junto con el porcentaje que eso supone.
 
-Para poder comparar con más detalle el número de vuelos realizados en cada estado en temporada baja (febrero), procedemos a representar estos valores en un diagrama de barras horizontal. En este caso vamos a trabajar con los datos de 2019, se aprecia que al igual que en 2018 Ontario sigue siendo el estado con mayor número de vuelos, con una diferencia de varios ordenes de magnitud mayor que el último estado, el cual en ese año es Yukon.<br/>
-<iframe width="885" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRkkPXg9sFa4MBvuvdeWqceoVbfoGJyrkX61jquLf3hoO41sODW-kXLTRSx3j3vLBFKAI3lLB1tsYy8/pubchart?oid=445385503&amp;format=interactive"></iframe><br/><br/>
+<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT6x9hnjB0BxtmlfZR7uGTm8scTQLk2nFMv2Xk2orMXQHRaiOtWycuD0m4w6QPU5xhfaQKJo3IoV6ac/pubchart?oid=333089712&amp;format=interactive"></iframe> <br><br>
 
-En temporada alata (julio) se aprecia que que el número de vuelos es mayor que en febrero y además se sigue manteniendo el mismo ranking entre estados a diferencia de Quebec que sube una posición.<br/>
-<iframe width="867" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRkkPXg9sFa4MBvuvdeWqceoVbfoGJyrkX61jquLf3hoO41sODW-kXLTRSx3j3vLBFKAI3lLB1tsYy8/pubchart?oid=305376996&amp;format=interactive"></iframe><br/><br/>
+Se ha representado las variables weekofyear y total_cases mediante un diagrama de puntos para ver las posibles correlaciones entre ellas. Se debe tener en cuenta que la correlación no implica causalidad.<br><br>
 
-En último lugar analizamos el número total de vuelos realizado por cada tipo de aeronave en el estado con mayor tráfico aereo, Ontario. Dado que vamos a comparar entre diferentes valores, nos inclinamos por utilizar un diagrama de barras horizontal marcando cada tipo de aeronave de un color. <br/>
-A primera vista se ve como es inexistente el número de vuelos de los Gliders, los helicopteros presentan más vuelos que este último pero siguen quedando muy atras de los Jet engines. Esto tiene sentido ya que los dos primeros tipos de aeronaves citadas son pequeñas y suelen emplearse para el transporte de pocos pasajeros y suelen ser empleadas en usos más recreativos. Por otro lado los otros tipos de aeronaves al ser más potentes y con mayor capacidad de carga y espacio son más empleadas a la hora de transportar pasajeros y mercancias, lo cual es más eficiente, de ahí su alto uso.<br/>
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRkkPXg9sFa4MBvuvdeWqceoVbfoGJyrkX61jquLf3hoO41sODW-kXLTRSx3j3vLBFKAI3lLB1tsYy8/pubchart?oid=681593977&amp;format=interactive"></iframe><br/><br/>
+<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT6x9hnjB0BxtmlfZR7uGTm8scTQLk2nFMv2Xk2orMXQHRaiOtWycuD0m4w6QPU5xhfaQKJo3IoV6ac/pubchart?oid=300311506&amp;format=interactive"></iframe> <br><br>
 
+A través de la aplicación de datawrapper se ha realizado un gráfico de áreas ya que comparan los cambios o tendencias mostrando el total de casos representado en cualquier punto dado en el tiempo. és ideal para mostrar de que manera el total de casos contribuye al total acumulativo a través del tiempo. <br><br>
 
-En esta última gráfica mostramos los mismos valores que la gráfica anterior pero esta vez para el mes de julio. Se aprecia claramente que el número total de vuelos aumenta considerablemente, a excepción de los Gliders que siguen siendo practicamente despreciables. Tal y como habíamos detectado previamente es curioso ver como las aeronaves de tipo "piston engines" pasan a un segundo lugar en temporada alta.<br/>
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRkkPXg9sFa4MBvuvdeWqceoVbfoGJyrkX61jquLf3hoO41sODW-kXLTRSx3j3vLBFKAI3lLB1tsYy8/pubchart?oid=1543778909&amp;format=interactive"></iframe><br/><br/>
+<iframe title="Número de casos totales en cada año" aria-label="Interactive area chart" id="datawrapper-chart-hR24c" src="https://datawrapper.dwcdn.net/hR24c/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="400" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
+</script> <br><br>
+
+<h2>Información adicional</h2>
+<h2>¿Qué es el Dengue?</h2>
+
+"Los virus del dengue se transmiten a las personas a través de la picadura de un mosquito de la especie Aedes ( Ae. aegypti o Ae. albopictus ) infectado." <br><br>
+
+Cada año, se pueden infectar por dengue hasta 400 millones de personas de las cuales 40.000 mueren. Una persona puede infectarse en su vida hasta cuatro veces. <br><br>
+
+Para prevenir dicha picadura, es adecuado protegerse a través de repelentes para mosquitos o vestirse con ropa que cubra la mayor parte del cuerpo.<br><br>
+
+<a href="https://www.cdc.gov/dengue/images/statistics-maps/USmap-03012023.jpg?_=26290"
+>https://www.cdc.gov/dengue/images/statistics-maps/USmap-03012023.jpg?_=26290</a
+><br />
+
+<br><br>
+En el siguiente enlace se pueden ver los estados y territorios que notifican los casos del dengue, concretamente en Estados Unidos, a fecha de 1 de marzo de 2023.
+<br><br>
+
+https://www.cdc.gov/dengue/images/statistics-maps/USmap-03012023.jpg?_=26290
+<br><br>
+
+<h2>Síntomas</h2>
+
+Los síntomas que provoca el dengue en ocasiones pueden confundirse con enfermedades que provocan fiebre, sarpullido, dolores o molestias. <br><br>
+
+<a href="https://www.cdc.gov/dengue/images/symptoms/DengueSymptomsUpdated.jpg?_=45121 "
+>https://www.cdc.gov/dengue/images/symptoms/DengueSymptomsUpdated.jpg?_=45121 </a
+><br />
+<br><br> 
+
+De entre los síntomas, el más común es la fiebre y dura entre 2 y 7 días provocando la recuperación de cada persona pasada una semana. Si hablamos del dengue grave, los síntomas pasan a ser dolor de vientre y sensibilidad, vómitos de 3 veces diarias, sangrado en nariz y encías, presencia de sangre en heces o en vómitos, fatiga o inquietud. <br><br> 
+
+<h2>Tratamiento</h2>
+
+Lamentablemente no existe un tratamiento con el que se pueda tratar el dengue, por tanto hay que tratar los síntomas acudiendo a atención médica personal.
 
 <h2>Conclusiones</h2>
-Hemos visto en este estudio como se distribuye el tráfico aereo de Canadá en los distintos estados. Hemos podido ver además que los meses de temporada baja y alta son febrero y julio respectivamente, lo cual tiene sentido al ser Canadá un estado situado en el emisferio norte del planeta, donde los meses de verano es cuando mejor tiempo hace y más vacaciones tiene la gente. Por otro lado hemos visto que tipos de aeronaves vuelan más que otras y hemos detectado que una de ellas cambia mucho de temporada baja a alta, los "piston engines". En un trabajo futuro sería interesante estudiar con más detalle esta última aeronave asi como analizar que aeropuertos de cada estado son los que mayor tráfico aereo tienen, con vistas a crear en un futuro un modelo de Machine Learning que nos ayude a predecir el número de vuelos que tendremos cada mes.<br/><br/>
+El primer gráfico de barras es bastante útil para nuestro caso ya que hace la vista globarl de la frecuencia del total de casos y es muy simple de crear. Se punualiza que si hubiese que representar una varibale continua no sería útil dicho gráfico. <br/><br/> 
 
+El uso de las gráficas circulares nos proporcionan, en primer lugar una ventaja visual ya que ayuda a la audiencia a que puedan examinar e interpretar la información que se quiere transmitir; y en segundo lugar una ventaja gracias a los porcentajes, los cuales ilustran cantidades, y provoca un inmediato entendimiento a audiencias de distintas edades y niveles educativos.<br/><br/>
+
+En la gráfica del diagrama de dispersión, podemos observar alguna curva de tendencia pero hay que destacar que el resultado de ésta gráfica es una aproximación por tanto no la recomendaríamos para explorar de forma rápida la información, aunque en este caso concretos al ser un subconjunto pequeño de datos, si prodría ser recomedada. Cabe destacar que con éstos diagramas podemos darnos cuenta de cuáles son los datos atípicos y comprobar las posibles relaciones causales. Concretamente vemos algunos datos atípicos en la semana 40 del año que hace referencia al mes de sptiembre; época en la que hay más mosquitos y se producen mayores picaduras y por consiguiente, contagios.<br/><br/>
+
+Con el gráfico de áreas, se rastrea con eficacia la manera en la que cambian los datos conforme pasan los años, pero al no haber gran cantidad de puntos de datos puede crearnos una visión engañosa mostrando tendencias que realmente no lo son.
+
+<br/><br/>
+
+<h2>Herramientas Utilizadas en el Trabajo Práctico</h2>
+Hemos utilizado Google Sheets (ya que nuestro dataset tiene un tamaño de 19.1 KB) el cual nos ha ayudado a trabajar de forma sencilla y ha realizar distintos gráficos. Además de usar la aplicación de datawrapper con la que también se han realizado gráficos. El presente trabajo se ha elaborado en stackblitz y se ha hecho uso de la cuenta personal de githup. 
+<br /><br />
 
 <h2>Referencias</h2>
 [1] <a href="https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/page/82/"
 >https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/page/82/</a
 ><br />
-[2] Itinerant movements by type of power plant, airports with NAV CANADA towers, monthly.<a href="https://open.canada.ca/data/en/dataset/9f47e242-79f2-49d8-95f7-e89741d53bee"
->https://open.canada.ca/data/en/dataset/9f47e242-79f2-49d8-95f7-e89741d53bee</a
+
+[2] <a href="https://dengueforecasting.noaa.gov/about.php"
+>https://dengueforecasting.noaa.gov/about.php</a
 ><br />
+
+[3] <a href="https://www.cdc.gov/Dengue/"
+>https://www.cdc.gov/Dengue/</a
+><br />
+
